@@ -17,10 +17,21 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->unique()->words(2, true);
+        $name = fake()->unique()->randomElement([
+            'Sembako',
+            'Makanan Ringan',
+            'Minuman',
+            'Perawatan Rumah',
+            'Perawatan Diri',
+            'Buah dan Sayur',
+            'Produk Beku',
+            'Perlengkapan Bayi',
+            'Bumbu Masak',
+            'Kesehatan',
+        ]);
 
         return [
-            'name' => ucfirst($name),
+            'name' => $name,
             'slug' => str($name)->slug(),
         ];
     }
